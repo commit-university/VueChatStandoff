@@ -84,8 +84,8 @@ export default {
           this.subscribeToRoom(room.id);
         })
         .catch(err => console.log('error with createRoom: ', err));
-    },
-  },
+    }
+  }
 };
 </script>
 

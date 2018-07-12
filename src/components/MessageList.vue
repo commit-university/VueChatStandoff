@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <div v-if="!!roomId" class="message-list">
+  <div class="message-list">
+    <div v-if="!!roomId">
       <Message v-for="message in messages" :key="message.id" :message="message" />
     </div>
     <div v-else>
-      <div class="message-list">
-        <div class="join-room">
-          Join a room! &rarr;
-        </div>
+      <div class="join-room">
+        Join a room! &rarr;
       </div>
     </div>
   </div>
@@ -18,9 +16,9 @@ export default {
   name: 'MessageList',
   props: {
     messages: {
-      type: [Array]
+      type: [Array],
     },
-    roomId:  Number,
+    roomId: Number,
   },
   data() {
     return {};
@@ -30,25 +28,24 @@ export default {
 
 <style>
 .message-list {
-    grid-area: m;
+  grid-area: m;
 }
 
 .message-list {
-    box-sizing: border-box;
-    padding-left: 6px;
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
-    background: var(--main-color);
+  box-sizing: border-box;
+  padding-left: 6px;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background: var(--main-color);
 }
 
 .message-list .join-room {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 34px;
-    font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 34px;
+  font-weight: 300;
 }
-
 </style>
