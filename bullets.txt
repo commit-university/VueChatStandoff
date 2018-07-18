@@ -20,8 +20,8 @@ function3() {
         .catch(err => console.log('error on joinableRooms: ', err));
     },
 
- <div class="message">
-    <div class="message-username">{{message.username}}</div>
+  <div class="message" :class="{'my-message': message.senderId === user}">
+    <div class="message-username">{{message.senderId}}</div>
     <div class="message-text">{{message.text}}</div>
   </div>
 

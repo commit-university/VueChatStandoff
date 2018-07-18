@@ -1,8 +1,5 @@
 <template>
-  <div class="message" :class="{'my-message': message.senderId === user}">
-    <div class="message-username">{{message.senderId}}</div>
-    <div class="message-text">{{message.text}}</div>
-  </div>
+
 </template>
 
 <script>

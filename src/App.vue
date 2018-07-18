@@ -3,15 +3,22 @@
     <h1>Hi The Good... Load your gun Cowboy!</h1>
     <p>You must:</p>
     <ol>
-      <li>Build your app with snippet in bullets.txt</li>
+      <li>Build your app with snippets in bullets.txt</li>
       <li>Run your app and fix it!</li>
       <li>Enter the #Saloon room</li>
       <li>Use your Passphrase as fast as possible to shoot any message in the #Saloon room, gain access to the band of #ElPasoBank and some points!</li>
       <li>Enter the #ElPasoBank using your new band name</li>
       <li>Shoot any message in the #ElPasoBank and gain points!</li>
     </ol>
+
+    <p>In #Saloon room: you can use
+      <strong>*rank</strong> to see your current team points.</p>
+    <p>In #ElPasoBank room: you can use
+      <strong>*rank</strong> to see your current team points and
+      <strong>*bands</strong> to see current band members.</p>
+
     <h2>Good Luck cowboy!</h2>
-    
+
     <!-- View Messages -->
     <!-- Write Messages -->
     <!-- Show Rooms -->
