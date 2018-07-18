@@ -96,9 +96,8 @@ export default {
     --main-text-color: #2e2e2d;
     --secondary-text-color: #dedede;
     --send-message-form: white;
-    --commit-color: #be1724
+    --commit-color: #be1724;
 }
-
 html, body {
     height: 100%;
     margin: 0;
@@ -107,7 +106,9 @@ html, body {
     font-weight: 200;
     color: white; 
 }
-
+#root {
+    height: 100%;
+}
 .app {
     display: grid;
     height: 100%;

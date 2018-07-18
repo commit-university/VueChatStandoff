@@ -22,18 +22,15 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
 .send-message-form {
     grid-area: s;
 }
-
 
 .send-message-form {
     background: var(--send-message-form);
     display: flex;
 }
-
 .send-message-form input {
     width: 100%;
     padding: 15px 10px;
@@ -41,15 +38,11 @@ export default {
     border-style: none;
     background: var(--send-message-form);
     font-weight: 200;
-
 }
-
 .send-message-form input:focus {
     outline-width: 0;
 }
-
 .send-message-form input::placeholder {
     color: var(--main-text-color);
 }
-
 </style>

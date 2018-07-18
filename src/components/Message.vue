@@ -12,24 +12,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 .message {
-  margin: 15px 0;
+    margin: 15px 0;
 }
-
 .message .message-username {
-  font-size: 11px;
-  color: var(--main-text-color);
-  opacity: 0.9;
-  margin-bottom: 6px;
+    font-size: 11px;
+    color: var(--main-text-color);
+    opacity: 0.9;
+    margin-bottom: 6px;
 }
-
 .message .message-text {
-  background: var(--commit-color);
-  color: var(--primary-text-color);
-  display: inline;
-  padding: 4px 8px;
-  border-radius: 8px;
-  line-height: 1.75em;
+    background: var(--commit-color);
+    color: var(--primary-text-color);
+    display: inline;
+    padding: 4px 8px;
+    border-radius: 8px;
+    line-height: 1.75em;
 }
 </style>
