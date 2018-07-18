@@ -25,6 +25,7 @@ export default {
 .message-list {
     box-sizing: border-box;
     padding-left: 6px;
+    padding-right: 6px;
     width: 100%;
     height: 100%;
     overflow: scroll;

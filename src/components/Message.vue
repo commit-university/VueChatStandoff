@@ -1,31 +1,51 @@
 <template>
- 
+  <div class="message" :class="{'my-message': message.senderId === user}">
+    <div class="message-username">{{message.senderId}}</div>
+    <div class="message-text">{{message.text}}</div>
+  </div>
 </template>
 
 <script>
+import { userName } from '../config';
 export default {
   name: 'Message',
   props: { message: Object },
+  data() {
+    return {
+      user: userName,
+    };
+  },
 };
 </script>
 
 <style scoped>
-
 .message {
-    margin: 15px 0;
+  margin: 15px 0;
 }
+
+.my-message {
+  text-align: right;
+}
+
 .message .message-username {
-    font-size: 11px;
-    color: var(--main-text-color);
-    opacity: 0.9;
-    margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--main-text-color);
+  opacity: 0.9;
+  margin-bottom: 6px;
 }
+
 .message .message-text {
-    background: var(--commit-color);
-    color: var(--primary-text-color);
-    display: inline;
-    padding: 4px 8px;
-    border-radius: 8px;
-    line-height: 1.75em;
+  font-size: 14px;
+  background: var(--commit-color);
+  color: var(--primary-text-color);
+  display: inline;
+  padding: 4px 8px;
+  border-radius: 8px;
+  line-height: 1.75em;
+}
+
+.my-message .message-text {
+  background: var(--secondary-color);
 }
 </style>
