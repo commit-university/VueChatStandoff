@@ -1,8 +1,21 @@
 <template>
-  <div class="app">
-    <RoomList :rooms="[...joinableRooms, ...joinedRooms]" :subscribeToRoom="subscribeToRoom" />
-    <MessageList :roomId="roomId" :messages="messages" />
-    <SendMessageForm :disabled="!roomId" :sendMessage="sendMessage" />
+  <div class="app welcome-text">
+    <h1>Hi The Good... Load your gun Cowboy!</h1>
+    <p>You must:</p>
+    <ol>
+      <li>Build your app with snippet in bullets.txt</li>
+      <li>Run your app and fix it!</li>
+      <li>Enter the #Saloon room</li>
+      <li>Use your Passphrase as fast as possible to shoot any message in the #Saloon room, gain access to the band of #ElPasoBank and some points!</li>
+      <li>Enter the #ElPasoBank using your new band name</li>
+      <li>Shoot any message in the #ElPasoBank and gain points!</li>
+    </ol>
+    <h2>Good Luck cowboy!</h2>
+    
+    <!-- View Messages -->
+    <!-- Write Messages -->
+    <!-- Show Rooms -->
+
   </div>
 </template>
 
@@ -18,7 +31,7 @@ export default {
       joinedRooms: [],
       roomId: null,
       currentUser: '',
-      messages: []
+      messages: [],
     };
   },
   mounted() {
@@ -34,93 +47,58 @@ export default {
       .connect()
       .then(currentUser => {
         this.currentUser = currentUser;
-        console.log(this.currentUser.rooms);
         this.getRooms();
       })
       .catch(err => console.log('error on connecting: ', err));
   },
   methods: {
-    getRooms() {
-      this.currentUser
-        .getJoinableRooms()
-        .then(joinableRooms => {
-          this.joinableRooms = joinableRooms;
-          this.joinedRooms = this.currentUser.rooms;
-        })
-        .catch(err => console.log('error on joinableRooms: ', err));
-    },
-    subscribeToRoom(roomId) {
-      this.messages = [];
-      this.currentUser
-        .subscribeToRoom({
-          roomId: roomId,
-          hooks: {
-            onNewMessage: message => {
-              this.messages = [...this.messages, message]
-            },
-            onUserStartedTyping: user => {
-              /** render out the users */
-            },
-          },
-        })
-        .then(room => {
-          this.roomId = room.id, 
-          this.getRooms();
-        })
-        .catch(err => console.log('error on subscribing to room: ', err));
-    },
-    sendMessage(text) {
-      this.currentUser.sendMessage({
-        text,
-        roomId: this.roomId,
-      });
-    },
-    createRoom(name) {
-      this.currentUser
-        .createRoom({
-          name,
-        })
-        .then(room => {
-          this.subscribeToRoom(room.id);
-        })
-        .catch(err => console.log('error with createRoom: ', err));
-    }
-  }
+    getRooms() {},
+    subscribeToRoom(roomId) {},
+    sendMessage(text) {},
+    createRoom(name) {},
+  },
 };
 </script>
 
 <style>
-:root {
-    --main-color: #dedede;
-    --secondary-color: #2e2e2d;
-    --main-text-color: #2e2e2d;
-    --secondary-text-color: #dedede;
-    --send-message-form: white;
-    --commit-color: #be1724;
-}
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: system-ui;
-    font-weight: 200;
-    color: white; 
-}
-#root {
-    height: 100%;
-}
-.app {
-    display: grid;
-    height: 100%;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 60px;
-    grid-template-areas: 
-        "m m m m m r"
-        "m m m m m r"
-        "m m m m m r"
-        "m m m m m r"
-        "m m m m m r"
-        "s s s s s s";
+/* :root {
+  --main-color: #dedede;
+  --secondary-color: #2e2e2d;
+  --main-text-color: #2e2e2d;
+  --secondary-text-color: #dedede;
+  --send-message-form: white;
+  --commit-color: #be1724;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+  font-weight: 200;
+  color: white;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 60px;
+  grid-template-areas:
+    'm m m m m r'
+    'm m m m m r'
+    'm m m m m r'
+    'm m m m m r'
+    'm m m m m r'
+    's s s s s s';
+} */
+
+.welcome-text {
+  color: var(--secondary-color);
+}
 </style>

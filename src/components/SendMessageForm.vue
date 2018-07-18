@@ -1,7 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit()" class="send-message-form">
-    <input :disabled="disabled" v-model="message" placeholder="Type your message and hit ENTER" type="text" />
-  </form>
+
 </template>
 
 <script>
@@ -14,11 +12,9 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      this.sendMessage(this.message);
-      this.message = '';
-    },
-  },
+    handle() {
+    }
+  }
 };
 </script>
 

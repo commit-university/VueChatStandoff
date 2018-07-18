@@ -1,8 +1,5 @@
 <template>
-  <div class="message">
-    <div class="message-username">{{message.username}}</div>
-    <div class="message-text">{{message.text}}</div>
-  </div>
+ 
 </template>
 
 <script>

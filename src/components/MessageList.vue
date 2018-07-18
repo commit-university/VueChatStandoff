@@ -1,14 +1,4 @@
 <template>
-  <div class="message-list">
-    <div v-if="!!roomId">
-      <Message v-for="message in messages" :key="message.id" :message="message" />
-    </div>
-    <div v-else>
-      <div class="join-room">
-        Join a room! &rarr;
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>

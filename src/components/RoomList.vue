@@ -1,13 +1,5 @@
 <template>
-  <div class="rooms-list rooms-list-logo-wrap">
-    <img src="../assets/cu_logo.png" class="rooms-list-logo"/>
-    <h3>Your rooms:</h3>
-    <ul>
-      <li v-for="room in rooms" :key="room.id" class="room" :class="{ 'active':  room.id === roomId }">
-        <a @click="handleSubscription(room.id)" href="#"> # {{room.name}}</a>
-      </li>
-    </ul>
-  </div>
+
 </template>
 
 <script>
@@ -28,11 +20,9 @@ export default {
     };
   },
   methods: {
-    handleSubscription(roomId) {
-      this.roomId = roomId;
-      this.subscribeToRoom(roomId);
-    },
-  },
+    handle(roomId) {
+    }
+  }
 };
 </script>
 
