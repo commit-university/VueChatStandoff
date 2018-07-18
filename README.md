@@ -8,7 +8,7 @@ You must:
 - Enter the #Saloon room
 - Use your Passphrase as fast as possible to shoot any message in the #Saloon room, gain access to the band of #ElPasoBank and some points!
 - Enter the #ElPasoBank using your new band name
-- Shoot any message in the #ElPasoBank and gain points!
+- Shoot *bang in the #ElPasoBank and gain points!
 
 Remember:
 
