@@ -1,0 +1,94 @@
+function1() {
+  this.sendMessage(this.message);
+  this.message = '';
+}
+
+<SendMessageForm :disabled="!roomId" :sendMessage="sendMessage"></SendMessageForm>
+
+function2(roomId) {
+  this.roomId = roomId;
+  this.subscribeToRoom(roomId);
+}
+
+function3() {
+      this.currentUser
+        .getJoinableRooms()
+        .then(joinableRooms => {
+          this.joinableRooms = joinableRooms;
+          this.joinedRooms = this.currentUser.rooms;
+        })
+        .catch(err => console.log('error on joinableRooms: ', err));
+    },
+
+  <div class="message" :class="{'my-message': message.senderId === user}">
+    <div class="message-username">{{message.senderId}}</div>
+    <div class="message-text">{{message.text}}</div>
+  </div>
+
+   <div class="message-list">
+    <div v-if="!!roomId">
+      <Message v-for="message in messages" :key="message.id" :message="message" />
+    </div>
+    <div v-else>
+      <div class="join-room">
+        Join a room! &rarr;
+      </div>
+    </div>
+  </div>
+
+  function4(roomId) {
+      this.messages = [];
+      this.currentUser
+        .subscribeToRoom({
+          roomId: roomId,
+          hooks: {
+            onNewMessage: message => {
+              this.messages = [...this.messages, message]
+            },
+            onUserStartedTyping: user => {
+              /** render out the users */
+            },
+          },
+        })
+        .then(room => {
+          this.roomId = room.id, 
+          this.getRooms();
+        })
+        .catch(err => console.log('error on subscribing to room: ', err));
+    }
+
+  <MessageList :roomId="roomId" :messages="messages"></MessageList>
+
+  <form @submit.prevent="handle()" class="send-message-form">
+    <input :disabled="disabled" v-model="message" placeholder="Type your message and hit ENTER" type="text" />
+  </form>
+
+  <div class="rooms-list rooms-list-logo-wrap">
+    <img src="../assets/cu_logo.png" class="rooms-list-logo"/>
+    <h3>Your rooms:</h3>
+    <ul>
+      <li v-for="room in rooms" :key="room.id" class="room" :class="{ 'active':  room.id === roomId }">
+        <a @click="handle(room.id)" href="#"> # {{room.name}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <RoomList :rooms="[...joinableRooms, ...joinedRooms]" :subscribeToRoom="subscribeToRoom"></RoomList>
+
+  function5(text) {
+      this.currentUser.sendMessage({
+        text,
+        roomId: this.roomId,
+      });
+    },
+
+function6(name) {
+      this.currentUser
+        .createRoom({
+          name,
+        })
+        .then(room => {
+          this.subscribeToRoom(room.id);
+        })
+        .catch(err => console.log('error with createRoom: ', err));
+    }
