@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style>
-/* :root {
+:root {
   --main-color: #dedede;
   --secondary-color: #2e2e2d;
   --main-text-color: #2e2e2d;
@@ -103,9 +103,11 @@ body {
     'm m m m m r'
     'm m m m m r'
     's s s s s s';
-} */
+}
 
 .welcome-text {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 16px;
 }
+
 </style>
